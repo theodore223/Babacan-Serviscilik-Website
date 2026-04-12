@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+/* ── Custom theme tokens ─────────────────────────────── */
+@theme inline {
+  /* Colors */
+  --color-navy:      #0D1F3C;
+  --color-navyDark:  #081529;
+  --color-navyMid:   #122847;
+  --color-gold:      #C89B3C;
+  --color-goldLight: #E8B84B;
+  --color-cream:     #FDF8F0;
+
+  /* Fonts */
+  --font-sans:  var(--font-montserrat), sans-serif;
+  --font-serif: var(--font-merriweather), serif;
+
+  /* Animations */
+  --animate-float:      float 6s ease-in-out infinite;
+  --animate-float-slow: float 9s ease-in-out infinite reverse;
+  --animate-spin-slow:  spin 20s linear infinite;
+  --animate-pulse-gold: pulseGold 2s ease-in-out infinite;
+}
+
+/* ── Keyframes ───────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-20px); }
+}
+@keyframes pulseGold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(200,155,60,0.4); }
+  50%       { box-shadow: 0 0 0 12px rgba(200,155,60,0); }
+}
+
+/* ── Global ──────────────────────────────────────────── */
+:root {
+  --nav-height:    72px;
+  --topbar-height: 40px;
+}
+
+html { scroll-behavior: smooth; }
+
+/* Section heading gold underline */
+.gold-line::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #C89B3C;
+  margin: 12px auto 0;
+}
+.gold-line-left::after {
+  margin: 12px 0 0;
+}
+
+/* Focus visible — klavye navigasyonu */
+*:focus-visible {
+  outline: 2px solid #C89B3C;
+  outline-offset: 3px;
+}
+
+/* Hareket hassasiyeti olan kullanıcılar */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Card hover */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(13,31,60,0.25);
+}
