@@ -3,10 +3,12 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 interface TransitionBannerProps {
-  variant: 'owner' | 'services'
+  variant: 'owner' | 'services' | 'whyus'
 }
 
 export default function TransitionBanner({ variant }: TransitionBannerProps) {
+  if (variant === 'whyus') return <WhyUsBanner />
+
   if (variant === 'owner') {
     return (
       <div className="relative overflow-hidden bg-[#081529] py-10 px-6">
@@ -164,6 +166,69 @@ export default function TransitionBanner({ variant }: TransitionBannerProps) {
       </div>
 
       {/* Bottom gold line */}
+      <motion.div
+        className="absolute bottom-0 left-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent w-full"
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+      />
+    </div>
+  )
+}
+
+// variant === 'whyus'
+function WhyUsBanner() {
+  return (
+    <div className="relative overflow-hidden bg-[#081529] py-10 px-6">
+      <motion.div
+        className="absolute top-0 left-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent w-full"
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      />
+
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <svg className="absolute inset-0 w-full h-full opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
+          {[...Array(6)].map((_, i) => (
+            <line key={i} x1={`${-10 + i * 22}%`} y1="100%" x2={`${20 + i * 22}%`} y2="0%"
+              stroke="#C89B3C" strokeWidth="1" />
+          ))}
+        </svg>
+        <div className="absolute left-0 top-0 w-1/3 h-full bg-gradient-to-r from-gold/8 to-transparent" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto flex items-center justify-between gap-8">
+        <motion.div
+          className="hidden md:flex items-center gap-4"
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          {['⭐', '🕐', '🛡️', '📍'].map((emoji, i) => (
+            <div key={i} className="w-12 h-12 rounded-full bg-white/8 border border-gold/20 flex items-center justify-center text-xl">
+              {emoji}
+            </div>
+          ))}
+        </motion.div>
+
+        <motion.div
+          className="md:text-right"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="text-gold text-xs tracking-[0.3em] uppercase font-medium mb-1">Farkımız</p>
+          <h2 className="font-serif text-3xl md:text-4xl text-white font-light">
+            Neden <span className="text-gold font-bold">Bizi</span> Seçmelisiniz?
+          </h2>
+          <p className="text-white/50 text-sm mt-1">Güven · Dakiklik · Deneyim · Yerel Hakimiyet</p>
+        </motion.div>
+      </div>
+
       <motion.div
         className="absolute bottom-0 left-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent w-full"
         initial={{ scaleX: 0 }}

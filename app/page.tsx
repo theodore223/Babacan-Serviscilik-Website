@@ -18,6 +18,7 @@ export default function Home() {
       <TransitionBanner variant="services" />
       <ServicesGrid />
       <StatsBanner />
+      <TransitionBanner variant="whyus" />
       <WhyUs />
       <AboutSnippet />
       <ReviewsSlider />
