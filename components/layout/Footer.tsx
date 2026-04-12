@@ -20,7 +20,7 @@ export default function Footer() {
             <span className="font-bold text-white text-xl tracking-wide">BABACAN</span>
             <span className="text-gold text-xs tracking-[0.2em] uppercase">Serviscilik</span>
           </div>
-          <p className="text-white/50 text-sm leading-relaxed max-w-xs">
+          <p className="text-white/70 text-sm leading-relaxed max-w-xs">
             Dörtyol ve çevresinde güvenilir öğrenci, işçi ve personel taşımacılığı.
             15+ yıllık deneyimle hizmetinizdeyiz.
           </p>
@@ -44,7 +44,7 @@ export default function Footer() {
               <li key={href}>
                 <Link
                   href={href}
-                  className="text-white/50 hover:text-gold transition-colors duration-200 text-sm py-1.5 block cursor-pointer"
+                  className="text-white/70 hover:text-gold transition-colors duration-200 text-sm py-1.5 block cursor-pointer"
                 >
                   {label}
                 </Link>
@@ -59,11 +59,11 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-start gap-3">
               <MapPin className="w-4 h-4 text-gold mt-0.5 shrink-0" />
-              <p className="text-white/50 text-sm leading-relaxed">{COMPANY.address}</p>
+              <p className="text-white/70 text-sm leading-relaxed">{COMPANY.address}</p>
             </div>
             <a
               href={COMPANY.phoneHref}
-              className="flex items-center gap-3 text-white/50 hover:text-gold
+              className="flex items-center gap-3 text-white/70 hover:text-gold
                          transition-colors duration-200 text-sm cursor-pointer"
             >
               <Phone className="w-4 h-4 text-gold" />
@@ -73,7 +73,7 @@ export default function Footer() {
               href={COMPANY.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 text-white/50 hover:text-green-400
+              className="flex items-center gap-3 text-white/70 hover:text-green-400
                          transition-colors duration-200 text-sm cursor-pointer"
             >
               <MessageCircle className="w-4 h-4 text-green-400" />
@@ -85,7 +85,7 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/10 mt-2 pt-6 pb-4 px-8">
-        <p className="text-white/30 text-center text-xs">
+        <p className="text-white/50 text-center text-xs">
           © 2025 Babacan Serviscilik Dörtyol Ltd. Şti. Tüm hakları saklıdır.
         </p>
       </div>

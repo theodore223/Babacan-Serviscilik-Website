@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { STATS } from '@/lib/constants'
 import SectionBackground from '@/components/ui/SectionBackground'
 
@@ -68,10 +69,11 @@ export default function AboutSnippet() {
           <div className="relative rounded-3xl overflow-hidden aspect-square border border-white/10
                           shadow-[0_20px_80px_rgba(0,0,0,0.5)]">
             {!fleetImgError ? (
-              <img
+              <Image
                 src="/images/fleet.jpg"
                 alt="Babacan Serviscilik araç filosu"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
                 onError={() => setFleetImgError(true)}
               />
             ) : (

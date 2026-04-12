@@ -1,8 +1,12 @@
 'use client'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import SectionBackground from '@/components/ui/SectionBackground'
 
 export default function OwnerSection() {
+  const [ownerImgError, setOwnerImgError] = useState(false)
+
   return (
     <section className="relative bg-[#0F1E35] py-24 px-6 overflow-hidden">
 
@@ -27,12 +31,35 @@ export default function OwnerSection() {
               <div className="relative z-10 w-[420px] h-[520px] rounded-2xl overflow-hidden
                               border border-white/10 bg-white/5 flex items-center justify-center
                               shadow-[0_20px_80px_rgba(0,0,0,0.5)]">
-                <img
-                  src="/images/owner.jpg"
-                  alt="Ahmet Işıkoğlu"
-                  className="w-full h-full object-cover scale-105"
-                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
-                />
+                {!ownerImgError ? (
+                  <Image
+                    src="/images/owner.jpg"
+                    alt="Ahmet Işıkoğlu"
+                    fill
+                    className="object-cover scale-105"
+                    onError={() => setOwnerImgError(true)}
+                  />
+                ) : (
+                  /* Fallback: dekoratif kutu */
+                  <div className="w-full h-full bg-white/5 flex flex-col items-center justify-center p-12">
+                    <div className="absolute inset-0 opacity-5">
+                      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                        {[...Array(6)].map((_, i) => (
+                          <circle key={i} cx="50%" cy="50%" r={`${25 + i * 12}%`}
+                            fill="none" stroke="#C89B3C" strokeWidth="1" />
+                        ))}
+                      </svg>
+                    </div>
+                    <div className="relative z-10 text-center">
+                      <div className="text-[100px] font-black text-white/10 leading-none select-none">A</div>
+                      <p className="text-gold text-3xl font-bold leading-none mt-2">Ahmet</p>
+                      <p className="text-white font-bold text-xl mt-1">Işıkoğlu</p>
+                      <div className="w-12 h-px bg-gold mx-auto my-4" />
+                      <p className="text-white/70 text-sm tracking-widest uppercase">Kurucu</p>
+                      <p className="text-gold text-xs tracking-[0.2em] uppercase mt-1">15+ Yıl Deneyim</p>
+                    </div>
+                  </div>
+                )}
               </div>
               {/* Gold nokta dekoru */}
               <div className="absolute -top-3 -left-3 w-6 h-6

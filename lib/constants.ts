@@ -5,7 +5,7 @@ export const COMPANY = {
   phoneHref: 'tel:+905322562203',
   whatsapp: 'https://wa.me/905322562203',
   address: 'Sanayi Mahallesi Garaj Altı, 2 Nolu Sk. No:6, 31600 Dörtyol/Hatay',
-  mapsEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3185.123!2d36.2167!3d36.8333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152f96b5b5b5b5b5%3A0x0!2sSanayi%20Mahallesi%20Garaj%20Alt%C4%B1%2C%202%20Nolu%20Sk.%20No%3A6%2C%2031600%20D%C3%B6rtyol%2FHatay!5e0!3m2!1str!2str!4v1234567890',
+  mapsEmbed: 'https://maps.google.com/maps?q=Sanayi+Mahallesi+Garaj+Alt%C4%B1+2+Nolu+Sk+No+6+D%C3%B6rtyol+Hatay&hl=tr&z=16&output=embed',
   mapsLink: 'https://maps.google.com/?q=Sanayi+Mah+2+Nolu+Sk+No6+Dörtyol+Hatay',
 }
 
@@ -54,8 +54,8 @@ export const STATS = [
 ]
 
 export const REVIEWS = [
-  { name: 'Ahmet Y.',  rating: 5, text: 'Oğlumu yıllardır bu servisle okula gönderiyorum. Hiç sorun yaşamadık, her zaman dakik ve güvenilir.' },
-  { name: 'Fatma K.',  rating: 5, text: 'Fabrikamızın personel taşımasını Babacan Serviscilik yapıyor. Çok memnunuz, kesinlikle tavsiye ederiz.' },
-  { name: 'Mehmet A.', rating: 5, text: 'Güvenilir, temiz araçlar. Sürücüler çok kibar ve dikkatli. Teşekkürler.' },
-  { name: 'Zeynep S.', rating: 5, text: "Kızımın güvenliği bizim için her şeyden önemli. Babacan Serviscilik'e tamamen güveniyoruz." },
+  { name: 'Ahmet Yılmaz',  rating: 5, text: 'Oğlumu 3 yıldır bu servisle okula gönderiyorum. Hiç sorun yaşamadık; sabah tam saatinde kapıda, akşam yine tam zamanında. Gönül rahatlığıyla tavsiye ederim.' },
+  { name: 'Fatma Kaya',    rating: 5, text: 'Fabrikamızın vardiya personelini Babacan Serviscilik taşıyor. Güzergah esnekliği ve sürücülerin tutumu çok iyi. Kurumsal anlaşma için doğru adres.' },
+  { name: 'Mehmet Arslan', rating: 4, text: 'Araçlar temiz ve bakımlı, sürücüler nazik. Bir seferinde rota değişikliği nedeniyle biraz geç kalındı ama hemen çözüldü. Genel olarak çok memnunum.' },
+  { name: 'Zeynep Şahin',  rating: 5, text: "Kızımın okul servisi için araştırdım, en güvenilir firma Babacan Serviscilik çıktı. İlk günden beri hiç endişe yaşamadım. Velilere kesinlikle öneririm." },
 ]

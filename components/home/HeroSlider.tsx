@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Phone, ChevronDown } from 'lucide-react'
+import Image from 'next/image'
 import { HERO_SLIDES, COMPANY } from '@/lib/constants'
 
 export default function HeroSlider() {
@@ -179,10 +180,13 @@ export default function HeroSlider() {
         <div className="w-[560px] h-[560px] rounded-full border-2 border-gold/40
                         flex items-center justify-center bg-white/8
                         backdrop-blur-md shadow-[0_0_120px_rgba(200,155,60,0.2)]">
-          <img
+          <Image
             src="/images/logo.png"
             alt="Babacan Serviscilik Logo"
-            className="w-[420px] h-[420px] object-contain drop-shadow-2xl"
+            width={420}
+            height={420}
+            className="object-contain drop-shadow-2xl"
+            priority
           />
         </div>
       </div>

@@ -28,7 +28,7 @@ export default function ReviewsSlider() {
           modules={[Autoplay, Pagination]}
           spaceBetween={24}
           slidesPerView={1}
-          autoplay={{ delay: 4000, disableOnInteraction: false }}
+          autoplay={{ delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true }}
           loop
           pagination={{ clickable: true }}
           breakpoints={{
@@ -36,6 +36,7 @@ export default function ReviewsSlider() {
             1024: { slidesPerView: 3 },
           }}
           className="pb-12"
+          aria-label="Müşteri yorumları"
         >
           {REVIEWS.map((review, i) => (
             <SwiperSlide key={i}>
