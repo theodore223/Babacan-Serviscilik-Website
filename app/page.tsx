@@ -21,6 +21,7 @@ export default function Home() {
       <TransitionBanner variant="whyus" />
       <WhyUs />
       <AboutSnippet />
+      <TransitionBanner variant="reviews" />
       <ReviewsSlider />
       <ContactCTA />
       <MapSection />

@@ -3,11 +3,12 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 interface TransitionBannerProps {
-  variant: 'owner' | 'services' | 'whyus'
+  variant: 'owner' | 'services' | 'whyus' | 'reviews'
 }
 
 export default function TransitionBanner({ variant }: TransitionBannerProps) {
   if (variant === 'whyus') return <WhyUsBanner />
+  if (variant === 'reviews') return <ReviewsBanner />
 
   if (variant === 'owner') {
     return (
@@ -226,6 +227,78 @@ function WhyUsBanner() {
             Neden <span className="text-gold font-bold">Bizi</span> Seçmelisiniz?
           </h2>
           <p className="text-white/50 text-sm mt-1">Güven · Dakiklik · Deneyim · Yerel Hakimiyet</p>
+        </motion.div>
+      </div>
+
+      <motion.div
+        className="absolute bottom-0 left-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent w-full"
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+      />
+    </div>
+  )
+}
+
+function ReviewsBanner() {
+  return (
+    <div className="relative overflow-hidden bg-[#0a1828] py-10 px-6">
+      <motion.div
+        className="absolute top-0 left-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent w-full"
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      />
+
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <svg className="absolute inset-0 w-full h-full opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
+          {[...Array(6)].map((_, i) => (
+            <line key={i} x1={`${-10 + i * 22}%`} y1="100%" x2={`${20 + i * 22}%`} y2="0%"
+              stroke="#C89B3C" strokeWidth="1" />
+          ))}
+        </svg>
+        <div className="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-gold/8 to-transparent" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto flex items-center justify-between gap-8">
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="text-gold text-xs tracking-[0.3em] uppercase font-medium mb-1">Referanslar</p>
+          <h2 className="font-serif text-3xl md:text-4xl text-white font-light">
+            Müşterilerimiz <span className="text-gold font-bold">Ne Diyor?</span>
+          </h2>
+          <p className="text-white/50 text-sm mt-1">Binlerce memnun yolcu · 5.0 Google Puanı</p>
+        </motion.div>
+
+        <motion.div
+          className="hidden md:flex flex-col items-end gap-1"
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <div className="flex gap-1">
+            {[...Array(5)].map((_, i) => (
+              <motion.span
+                key={i}
+                className="text-gold text-2xl"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 + i * 0.08 }}
+              >
+                ★
+              </motion.span>
+            ))}
+          </div>
+          <p className="text-white/40 text-xs tracking-widest uppercase">5.0 / 5.0</p>
         </motion.div>
       </div>
 
