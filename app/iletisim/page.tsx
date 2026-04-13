@@ -11,7 +11,7 @@ const HIZMET_TURLERI = [
 ]
 
 export default function IletisimPage() {
-  const [form, setForm] = useState({ ad: '', telefon: '', hizmet: HIZMET_TURLERI[0], mesaj: '' })
+  const [form, setForm] = useState({ ad: '', telefon: '', hizmet: '', mesaj: '' })
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
@@ -164,6 +164,7 @@ export default function IletisimPage() {
                            text-white text-sm appearance-none cursor-pointer
                            focus:outline-none focus:border-gold/60 transition-colors duration-200"
               >
+                <option value="" disabled className="bg-[#0D1F3C] text-white/40">Tür seçiniz</option>
                 {HIZMET_TURLERI.map(h => (
                   <option key={h} value={h} className="bg-[#0D1F3C]">{h}</option>
                 ))}
