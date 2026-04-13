@@ -88,7 +88,7 @@ export default function HeroSlider() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
-            className="flex lg:hidden justify-center -mt-[160px] mb-4"
+            className="flex lg:hidden justify-center pt-8 mb-6"
           >
             <div className="w-52 h-52 rounded-full border border-gold/40
                             flex items-center justify-center bg-white/8
@@ -193,14 +193,14 @@ export default function HeroSlider() {
 
       {/* Right: logo */}
       <div className="hidden lg:flex items-center justify-center
-                      absolute right-40 top-1/2 -translate-y-1/2 z-30">
-        <div className="w-[600px] h-[600px] rounded-full border-2 border-gold/40
-                        flex items-center justify-center bg-white/8
+                      absolute xl:right-40 lg:right-8 top-1/2 -translate-y-1/2 z-30">
+        <div className="xl:w-[600px] xl:h-[600px] lg:w-[460px] lg:h-[460px] rounded-full border-2 border-gold/40
+                        flex items-center justify-center bg-transparent
                         backdrop-blur-md shadow-[0_0_120px_rgba(200,155,60,0.2)]">
           <img
             src="/images/logo.png"
             alt="Babacan Serviscilik Logo"
-            className="w-[500px] h-[500px] object-contain"
+            className="xl:w-[500px] xl:h-[500px] lg:w-[380px] lg:h-[380px] object-contain"
           />
         </div>
       </div>

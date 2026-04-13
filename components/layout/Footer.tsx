@@ -86,7 +86,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/10 mt-2 pt-6 pb-4 px-8">
         <p className="text-white/50 text-center text-xs">
-          © 2025 Babacan Serviscilik Dörtyol Ltd. Şti. Tüm hakları saklıdır.
+          © {new Date().getFullYear()} Babacan Serviscilik Dörtyol Ltd. Şti. Tüm hakları saklıdır.
         </p>
       </div>
     </footer>
