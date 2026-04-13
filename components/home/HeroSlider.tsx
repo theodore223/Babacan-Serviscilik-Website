@@ -197,15 +197,15 @@ export default function HeroSlider() {
 
       {/* Right: logo */}
       <div className="hidden lg:flex items-center justify-center
-                      absolute right-24 top-1/2 -translate-y-1/2 z-30">
-        <div className="w-[520px] h-[520px] rounded-full border-2 border-gold/40
+                      absolute right-40 top-1/2 -translate-y-1/2 z-30">
+        <div className="w-[600px] h-[600px] rounded-full border-2 border-gold/40
                         flex items-center justify-center bg-white/8
-                        backdrop-blur-md shadow-[0_0_110px_rgba(200,155,60,0.2)]">
+                        backdrop-blur-md shadow-[0_0_120px_rgba(200,155,60,0.2)]">
           <Image
             src="/images/logo.png"
             alt="Babacan Serviscilik Logo"
-            width={400}
-            height={400}
+            width={460}
+            height={460}
             className="object-contain drop-shadow-2xl"
             priority
           />
