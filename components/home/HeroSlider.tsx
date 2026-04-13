@@ -21,24 +21,24 @@ export default function HeroSlider() {
       {/* ── BACKGROUND: Geometric SVG Animations ── */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
 
-        {/* Large rotating circle — bottom left */}
+        {/* Large rotating circle — bottom left (md ve üstü) */}
         <motion.div
           className="absolute -bottom-40 -left-40 w-[600px] h-[600px]
-                     rounded-full border border-gold/10"
+                     rounded-full border border-gold/10 hidden md:block"
           animate={{ rotate: 360 }}
           transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
         />
         <motion.div
           className="absolute -bottom-20 -left-20 w-[400px] h-[400px]
-                     rounded-full border border-gold/15"
+                     rounded-full border border-gold/15 hidden md:block"
           animate={{ rotate: -360 }}
           transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
         />
 
-        {/* Large rotating circle — top right */}
+        {/* Large rotating circle — top right (md ve üstü) */}
         <motion.div
           className="absolute -top-60 -right-60 w-[700px] h-[700px]
-                     rounded-full border-[1px] border-gold/20"
+                     rounded-full border-[1px] border-gold/20 hidden md:block"
           animate={{ rotate: 360 }}
           transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
         />

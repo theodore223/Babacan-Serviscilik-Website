@@ -53,6 +53,12 @@ export const STATS = [
   { value: 5,   suffix: '.0', label: 'Google Puanı' },
 ]
 
+export const WORKING_HOURS = [
+  { gun: 'Pazartesi – Cuma', saat: '06:00 – 22:00' },
+  { gun: 'Cumartesi',        saat: '07:00 – 20:00' },
+  { gun: 'Pazar',            saat: 'Acil hatlarda ulaşılabilir' },
+]
+
 export const REVIEWS = [
   { name: 'Ahmet Yılmaz',  rating: 5, text: 'Oğlumu 3 yıldır bu servisle okula gönderiyorum. Hiç sorun yaşamadık; sabah tam saatinde kapıda, akşam yine tam zamanında. Gönül rahatlığıyla tavsiye ederim.' },
   { name: 'Fatma Kaya',    rating: 5, text: 'Fabrikamızın vardiya personelini Babacan Serviscilik taşıyor. Güzergah esnekliği ve sürücülerin tutumu çok iyi. Kurumsal anlaşma için doğru adres.' },

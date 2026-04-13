@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Phone, MessageCircle, MapPin, Clock } from 'lucide-react'
-import { COMPANY } from '@/lib/constants'
+import { COMPANY, WORKING_HOURS } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'İletişim | Babacan Serviscilik',
@@ -84,11 +84,7 @@ export default function IletisimPage() {
             </div>
             <h2 className="text-white font-bold text-lg mb-4">Çalışma Saatleri</h2>
             <div className="space-y-2">
-              {[
-                { gun: 'Pazartesi – Cuma', saat: '06:00 – 22:00' },
-                { gun: 'Cumartesi',        saat: '07:00 – 20:00' },
-                { gun: 'Pazar',            saat: 'Acil hatlarda ulaşılabilir' },
-              ].map(({ gun, saat }) => (
+              {WORKING_HOURS.map(({ gun, saat }) => (
                 <div key={gun} className="flex justify-between text-sm">
                   <span className="text-white/60">{gun}</span>
                   <span className="text-white/90 font-medium">{saat}</span>
@@ -100,24 +96,19 @@ export default function IletisimPage() {
         </div>
       </section>
 
-      {/* Map placeholder */}
+      {/* Map */}
       <section className="pb-24 px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="w-full h-[350px] rounded-2xl bg-white/5 border border-white/10
-                          flex flex-col items-center justify-center text-center">
-            <MapPin className="w-12 h-12 text-gold/50 mb-3" />
-            <p className="text-white/40 text-sm">Dörtyol, Hatay</p>
-            <a
-              href={COMPANY.mapsLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block mt-4 border border-gold/40 text-gold/70 text-xs
-                         px-4 py-2 rounded-full hover:border-gold hover:text-gold
-                         transition-colors duration-200"
-            >
-              Google Maps&apos;te Görüntüle
-            </a>
-          </div>
+        <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden border border-white/10 shadow-2xl h-[350px]">
+          <iframe
+            src={COMPANY.mapsEmbed}
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Babacan Serviscilik Konumu"
+          />
         </div>
       </section>
 

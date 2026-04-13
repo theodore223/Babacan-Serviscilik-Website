@@ -20,6 +20,7 @@ export default function Home() {
       <StatsBanner />
       <TransitionBanner variant="whyus" />
       <WhyUs />
+      <TransitionBanner variant="about" />
       <AboutSnippet />
       <TransitionBanner variant="reviews" />
       <ReviewsSlider />

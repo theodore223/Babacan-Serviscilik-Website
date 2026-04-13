@@ -23,9 +23,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="tr">
       <body className={`${montserrat.variable} ${merriweather.variable} font-sans`}>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2
+                     bg-gold text-navy font-bold px-4 py-2 rounded-full text-sm z-[200]"
+        >
+          Ana içeriğe geç
+        </a>
         <TopBar />
         <Navbar />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
         <MobileBottomBar />
       </body>

@@ -43,10 +43,15 @@ export default function ReviewsSlider() {
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 h-full">
                 <div className="text-6xl text-gold font-serif leading-none mb-4 select-none">&ldquo;</div>
                 <p className="text-white/85 italic text-sm leading-relaxed mb-6">{review.text}</p>
-                <div className="flex gap-0.5 mb-2">
+                <div
+                  className="flex gap-0.5 mb-2"
+                  role="img"
+                  aria-label={`${review.rating} üzerinden 5 yıldız`}
+                >
                   {[...Array(5)].map((_, i) => (
                     <span
                       key={i}
+                      aria-hidden="true"
                       className={`text-lg ${i < review.rating ? 'text-gold' : 'text-white/20'}`}
                     >
                       ★

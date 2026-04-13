@@ -1,5 +1,5 @@
 import { MapPin, Phone, MessageCircle, Clock } from 'lucide-react'
-import { COMPANY } from '@/lib/constants'
+import { COMPANY, WORKING_HOURS } from '@/lib/constants'
 
 export default function MapSection() {
   return (
@@ -71,10 +71,13 @@ export default function MapSection() {
               <p className="text-gold text-xs tracking-[0.2em] uppercase mb-1">
                 Çalışma Saatleri
               </p>
-              <p className="text-white text-sm leading-relaxed">
-                Pazartesi – Cumartesi: 06:00 – 22:00<br />
-                Pazar: Acil hatlarda ulaşılabilir
-              </p>
+              <div className="space-y-1">
+                {WORKING_HOURS.map(({ gun, saat }) => (
+                  <p key={gun} className="text-white text-sm leading-relaxed">
+                    <span className="text-white/60">{gun}:</span> {saat}
+                  </p>
+                ))}
+              </div>
             </div>
           </div>
 

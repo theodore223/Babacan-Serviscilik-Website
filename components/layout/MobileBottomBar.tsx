@@ -1,8 +1,12 @@
+'use client'
 import { Bus, MapPin, MessageCircle, Phone } from 'lucide-react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { COMPANY } from '@/lib/constants'
 
 export default function MobileBottomBar() {
+  const pathname = usePathname()
+
   return (
     <nav
       className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-navyDark border-t border-gold/20"
@@ -11,8 +15,8 @@ export default function MobileBottomBar() {
       <div className="grid grid-cols-4">
         <Link
           href="/hizmetler"
-          className="flex flex-col items-center py-3 gap-1 text-white/60
-                     hover:text-gold transition-colors duration-200 text-xs cursor-pointer"
+          className={`flex flex-col items-center py-3 gap-1 transition-colors duration-200 text-xs cursor-pointer
+            ${pathname === '/hizmetler' ? 'text-gold' : 'text-white/60 hover:text-gold'}`}
         >
           <Bus className="w-5 h-5" />
           Hizmetler
