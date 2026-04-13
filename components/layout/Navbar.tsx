@@ -33,12 +33,9 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="cursor-pointer">
-          <img
-            src="/images/logo.png"
-            alt="Babacan Serviscilik"
-            className="w-48 h-18 object-contain"
-          />
+        <Link href="/" className="flex flex-col leading-tight cursor-pointer">
+          <span className="font-bold text-white text-xl tracking-wide">BABACAN</span>
+          <span className="text-gold text-xs tracking-[0.2em] uppercase">Serviscilik</span>
         </Link>
 
         {/* Desktop nav */}
