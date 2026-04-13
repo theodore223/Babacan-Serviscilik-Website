@@ -15,7 +15,7 @@ export default function HeroSlider() {
   }, [])
 
   return (
-    <section className="relative h-screen min-h-[600px] overflow-hidden bg-gradient-to-b from-[#081529] to-[#0D1F3C] flex items-center">
+    <section className="relative h-screen min-h-[600px] overflow-hidden bg-gradient-to-b from-[#081529] to-[#0D1F3C] flex flex-col lg:flex-row lg:items-center">
 
       {/* ── BACKGROUND: Geometric SVG Animations ── */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -80,26 +80,28 @@ export default function HeroSlider() {
       </div>
 
       {/* ── CONTENT ── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
-        <div className="lg:w-1/2">
+      <div className="relative z-10 w-full flex flex-col lg:block flex-1 lg:flex-none">
 
-          {/* Mobile logo — yalnızca lg altında görünür */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            className="flex lg:hidden justify-center pt-8 mb-6"
-          >
-            <div className="w-52 h-52 rounded-full border border-gold/40
-                            flex items-center justify-center bg-white/8
-                            backdrop-blur-md shadow-[0_0_60px_rgba(200,155,60,0.2)]">
-              <img
-                src="/images/logo.png"
-                alt="Babacan Serviscilik Logo"
-                className="w-40 h-40 object-contain"
-              />
-            </div>
-          </motion.div>
+        {/* Mobile logo — yalnızca lg altında, sayfanın üst kısmı */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          className="flex lg:hidden justify-center pt-16 pb-4"
+        >
+          <div className="w-48 h-48 rounded-full border border-gold/40
+                          flex items-center justify-center bg-transparent
+                          shadow-[0_0_60px_rgba(200,155,60,0.2)]">
+            <img
+              src="/images/logo.png"
+              alt="Babacan Serviscilik Logo"
+              className="w-40 h-40 object-contain"
+            />
+          </div>
+        </motion.div>
+
+        {/* Metin içeriği */}
+        <div className="max-w-7xl mx-auto px-6 w-full lg:w-1/2 flex-1 flex flex-col justify-center pb-16 lg:pb-0">
 
           {/* Top label */}
           <motion.div
@@ -191,7 +193,7 @@ export default function HeroSlider() {
         </div>
       </div>
 
-      {/* Right: logo */}
+      {/* Right: logo — masaüstü */}
       <div className="hidden lg:flex items-center justify-center
                       absolute xl:right-40 lg:right-8 top-1/2 -translate-y-1/2 z-30">
         <div className="xl:w-[600px] xl:h-[600px] lg:w-[460px] lg:h-[460px] rounded-full border-2 border-gold/40

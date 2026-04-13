@@ -5,8 +5,8 @@ export const COMPANY = {
   phoneHref: 'tel:+905322562203',
   whatsapp: 'https://wa.me/905322562203',
   address: 'Sanayi Mahallesi Garaj Altı, 2 Nolu Sk. No:6, 31600 Dörtyol/Hatay',
-  mapsEmbed: 'https://maps.google.com/maps?q=Sanayi+Mahallesi+Garaj+Alt%C4%B1+2+Nolu+Sk+No+6+D%C3%B6rtyol+Hatay&hl=tr&z=16&output=embed',
-  mapsLink: 'https://maps.google.com/?q=Sanayi+Mah+2+Nolu+Sk+No6+Dörtyol+Hatay',
+  mapsEmbed: 'https://maps.google.com/maps?q=Sanayi+mahallesi+garaj+alt%C4%B1+Sanayi+2+Nolu+Sk+no6+31600+D%C3%B6rtyol+Hatay&hl=tr&z=17&output=embed',
+  mapsLink: 'https://maps.google.com/?q=Sanayi+mahallesi+garaj+alt%C4%B1+Sanayi+2+Nolu+Sk+no6+31600+D%C3%B6rtyol+Hatay',
 }
 
 export const HERO_SLIDES = [
