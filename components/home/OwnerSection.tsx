@@ -23,12 +23,12 @@ export default function OwnerSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="relative">
+            <div className="relative w-full max-w-[420px]">
               {/* Altın çerçeve efekti */}
               <div className="absolute -bottom-4 -right-4 w-full h-full
                               border-2 border-gold/40 rounded-2xl z-0" />
               {/* Fotoğraf kutusu */}
-              <div className="relative z-10 w-[420px] h-[520px] rounded-2xl overflow-hidden
+              <div className="relative z-10 w-full max-w-[420px] h-[380px] md:h-[520px] rounded-2xl overflow-hidden
                               border border-white/10 bg-white/5 flex items-center justify-center
                               shadow-[0_20px_80px_rgba(0,0,0,0.5)]">
                 {!ownerImgError ? (

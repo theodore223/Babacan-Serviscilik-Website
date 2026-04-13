@@ -1,6 +1,5 @@
 'use client'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import { GraduationCap, HardHat, Briefcase, Star, Clock, Shield, MapPin, Bus } from 'lucide-react'
 
 interface TransitionBannerProps {
@@ -34,25 +33,6 @@ export default function TransitionBanner({ variant }: TransitionBannerProps) {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto flex items-center gap-10">
-
-          {/* Photo circle */}
-          <motion.div
-            className="shrink-0 hidden sm:block"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-gold/60
-                            shadow-[0_0_32px_rgba(200,155,60,0.25)]">
-              <Image
-                src="/images/owner.jpg"
-                alt="Ahmet Işıkoğlu"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </motion.div>
 
           {/* Vertical gold line */}
           <motion.div
