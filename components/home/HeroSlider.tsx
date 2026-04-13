@@ -101,7 +101,7 @@ export default function HeroSlider() {
         </motion.div>
 
         {/* Metin içeriği */}
-        <div className="px-6 lg:pl-56 xl:pl-72 w-full lg:w-1/2 xl:w-[40%] flex-1 flex flex-col justify-center pb-16 lg:pb-0">
+        <div className="px-6 lg:pl-56 xl:pl-72 w-full lg:w-[58%] xl:w-[52%] flex-1 flex flex-col justify-center pb-16 lg:pb-0">
 
           {/* Top label */}
           <motion.div
