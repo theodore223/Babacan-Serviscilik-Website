@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, X, Expand } from 'lucide-react'
 import Image from 'next/image'
@@ -44,6 +44,7 @@ function GalleryBlock({
   const [lightbox, setLightbox]   = useState(false)
   const [direction, setDirection] = useState(1)
   const [resetKey, setResetKey]   = useState(0)
+  const touchStartX = useRef<number | null>(null)
 
   const prev = useCallback(() => {
     setDirection(-1)
@@ -56,6 +57,17 @@ function GalleryBlock({
     setCurrent(c => (c + 1) % images.length)
     if (manual) setResetKey(k => k + 1)
   }, [images.length])
+
+  function handleTouchStart(e: React.TouchEvent) {
+    touchStartX.current = e.touches[0].clientX
+  }
+
+  function handleTouchEnd(e: React.TouchEvent) {
+    if (touchStartX.current === null) return
+    const diff = touchStartX.current - e.changedTouches[0].clientX
+    if (Math.abs(diff) > 40) diff > 0 ? next(true) : prev()
+    touchStartX.current = null
+  }
 
   useEffect(() => {
     if (!autoplay || lightbox) return
@@ -80,7 +92,9 @@ function GalleryBlock({
       <div className="relative rounded-2xl overflow-hidden border border-gold/20
                       shadow-[0_0_40px_rgba(200,155,60,0.08)] bg-[#0a1a2e]
                       mx-auto w-full max-w-lg"
-           style={{ aspectRatio: ratio }}>
+           style={{ aspectRatio: ratio }}
+           onTouchStart={handleTouchStart}
+           onTouchEnd={handleTouchEnd}>
 
         {/* Fotoğraf */}
         <AnimatePresence custom={direction} mode="sync">

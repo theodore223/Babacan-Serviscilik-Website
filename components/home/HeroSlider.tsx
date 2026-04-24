@@ -91,7 +91,7 @@ export default function HeroSlider() {
           className="flex lg:hidden justify-center pt-16 pb-4"
         >
           <div className="w-48 h-48 rounded-full border border-gold/40
-                          flex items-center justify-center bg-transparent
+                          flex items-center justify-center bg-white
                           shadow-[0_0_60px_rgba(200,155,60,0.2)]">
             <Image
               src="/images/logo.png"
