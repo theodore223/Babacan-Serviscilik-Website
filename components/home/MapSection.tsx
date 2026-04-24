@@ -74,7 +74,7 @@ export default function MapSection() {
               <div className="space-y-1">
                 {WORKING_HOURS.map(({ gun, saat }) => (
                   <p key={gun} className="text-white text-sm leading-relaxed">
-                    <span className="text-white/60">{gun}:</span> {saat}
+                    <span className="text-white/75">{gun}:</span> {saat}
                   </p>
                 ))}
               </div>

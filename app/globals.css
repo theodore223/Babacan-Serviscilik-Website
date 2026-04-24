@@ -37,6 +37,10 @@
   --topbar-height: 40px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Section heading gold underline */
 .gold-line::after {
   content: '';

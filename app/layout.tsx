@@ -17,11 +17,28 @@ export const metadata: Metadata = {
   title: "Babacan Serviscilik | Dörtyol Öğrenci ve Personel Taşımacılığı",
   description: "Hatay Dörtyol'da öğrenci servisi, işçi ve personel taşımacılığı. Güvenilir, dakik, profesyonel. Hemen arayın: 0532 256 22 03",
   keywords: ['Dörtyol servis', 'Hatay öğrenci servisi', 'personel taşımacılığı', 'Babacan Serviscilik'],
+  icons: {
+    icon: '/images/logo.png',
+    apple: '/images/logo.png',
+  },
+  openGraph: {
+    title: 'Babacan Serviscilik | Dörtyol',
+    description: "Hatay Dörtyol'da 20+ yıllık güvenilir öğrenci, işçi ve personel taşımacılığı.",
+    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: 'Babacan Serviscilik' }],
+    locale: 'tr_TR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Babacan Serviscilik | Dörtyol',
+    description: "Dörtyol'da 20+ yıllık güvenilir taşımacılık.",
+    images: ['/images/logo.png'],
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="tr" data-scroll-behavior="smooth">
+    <html lang="tr">
       <body className={`${montserrat.variable} ${merriweather.variable} font-sans`}>
         <a
           href="#main-content"

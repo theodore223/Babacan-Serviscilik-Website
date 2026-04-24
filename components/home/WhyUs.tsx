@@ -42,7 +42,7 @@ export default function WhyUs() {
                   <Icon className="w-9 h-9 text-gold" />
                 </div>
                 <h3 className="text-white font-bold text-lg mt-1">{item.title}</h3>
-                <p className="text-white/70 text-sm mt-2 leading-relaxed">{item.desc}</p>
+                <p className="text-white/75 text-sm mt-2 leading-relaxed">{item.desc}</p>
               </motion.div>
             )
           })}

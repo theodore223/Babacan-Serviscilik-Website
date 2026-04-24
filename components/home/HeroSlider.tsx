@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Phone, ChevronDown } from 'lucide-react'
+import Image from 'next/image'
 import { HERO_SLIDES, COMPANY } from '@/lib/constants'
 
 export default function HeroSlider() {
@@ -92,10 +93,12 @@ export default function HeroSlider() {
           <div className="w-48 h-48 rounded-full border border-gold/40
                           flex items-center justify-center bg-transparent
                           shadow-[0_0_60px_rgba(200,155,60,0.2)]">
-            <img
+            <Image
               src="/images/logo.png"
               alt="Babacan Serviscilik Logo"
-              className="w-40 h-40 object-contain"
+              width={160}
+              height={160}
+              className="object-contain"
             />
           </div>
         </motion.div>
@@ -137,7 +140,7 @@ export default function HeroSlider() {
           <AnimatePresence mode="wait">
             <motion.p
               key={`sub-${current}`}
-              className="text-white/60 text-xl md:text-2xl mb-10 font-light"
+              className="text-white/75 text-xl md:text-2xl mb-10 font-light"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 20 }}
@@ -197,12 +200,15 @@ export default function HeroSlider() {
       <div className="hidden lg:flex items-center justify-center
                       absolute xl:right-40 lg:right-8 top-1/2 -translate-y-1/2 z-30">
         <div className="xl:w-[600px] xl:h-[600px] lg:w-[460px] lg:h-[460px] rounded-full border-2 border-gold/40
-                        flex items-center justify-center bg-transparent
+                        flex items-center justify-center bg-white
                         backdrop-blur-md shadow-[0_0_120px_rgba(200,155,60,0.2)]">
-          <img
+          <Image
             src="/images/logo.png"
             alt="Babacan Serviscilik Logo"
+            width={500}
+            height={500}
             className="xl:w-[500px] xl:h-[500px] lg:w-[380px] lg:h-[380px] object-contain"
+            priority
           />
         </div>
       </div>

@@ -1,10 +1,18 @@
 import type { Metadata } from 'next'
 import { CheckCircle } from 'lucide-react'
-import { COMPANY, STATS } from '@/lib/constants'
+import { COMPANY } from '@/lib/constants'
+import AnimatedStats from '@/components/ui/AnimatedStats'
 
 export const metadata: Metadata = {
   title: 'Hakkımızda | Babacan Serviscilik',
-  description: "Hatay Dörtyol'da 15 yılı aşkın deneyimiyle öğrenci, işçi ve personel taşımacılığı yapan Babacan Serviscilik hakkında.",
+  description: "Hatay Dörtyol'da 20 yılı aşkın deneyimiyle öğrenci, işçi ve personel taşımacılığı yapan Babacan Serviscilik hakkında.",
+  openGraph: {
+    title: 'Hakkımızda | Babacan Serviscilik',
+    description: "Dörtyol'un 20+ yıllık köklü taşımacısı. Öğrenci, işçi ve personel servisi.",
+    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: 'Babacan Serviscilik' }],
+    locale: 'tr_TR',
+    type: 'website',
+  },
 }
 
 export default function HakkimizdaPage() {
@@ -19,23 +27,14 @@ export default function HakkimizdaPage() {
         <h1 className="font-serif text-5xl text-white mt-3 mb-4">
           Babacan Serviscilik
         </h1>
-        <p className="text-white/60 text-lg max-w-2xl mx-auto">
+        <p className="text-white/75 text-lg max-w-2xl mx-auto">
           {COMPANY.fullName} olarak Dörtyol ve çevresinde güvenilir taşımacılık hizmeti sunuyoruz.
         </p>
       </section>
 
       {/* Stats */}
       <section className="px-6 pb-16">
-        <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {STATS.map((s) => (
-            <div key={s.label}>
-              <span className="text-gold font-black text-5xl leading-none">
-                {s.value}{s.suffix}
-              </span>
-              <p className="text-white/60 text-sm mt-2">{s.label}</p>
-            </div>
-          ))}
-        </div>
+        <AnimatedStats />
       </section>
 
       {/* Story */}
@@ -44,9 +43,9 @@ export default function HakkimizdaPage() {
 
           <div>
             <h2 className="font-serif text-3xl text-white mb-6">Hikayemiz</h2>
-            <div className="space-y-4 text-white/65 leading-relaxed">
+            <div className="space-y-4 text-white/75 leading-relaxed">
               <p>
-                Babacan Serviscilik, 2009 yılında Ahmet Işıkoğlu tarafından Dörtyol'da kuruldu.
+                Babacan Serviscilik, 2006 yılında Ahmet Işıkoğlu tarafından Dörtyol'da kuruldu.
                 İlk günden itibaren tek hedefimiz vardı: ailelerin ve kurumların güvenle
                 bıraktığı yolcuları zamanında ve güvenle taşımak.
               </p>
@@ -88,8 +87,8 @@ export default function HakkimizdaPage() {
         <div className="max-w-2xl mx-auto text-center pt-16">
           <h2 className="font-serif text-3xl text-white mb-3">Kurucu</h2>
           <p className="text-gold font-bold text-xl mb-2">Ahmet Işıkoğlu</p>
-          <p className="text-white/60 leading-relaxed">
-            15 yılı aşkın taşımacılık deneyimiyle Dörtyol'un güvenilir servis firmasını
+          <p className="text-white/75 leading-relaxed">
+            20 yılı aşkın taşımacılık deneyimiyle Dörtyol'un güvenilir servis firmasını
             kurdu ve büyüttü. Müşteri memnuniyeti ve güvenli taşımacılık onun önceliğidir.
           </p>
           <a

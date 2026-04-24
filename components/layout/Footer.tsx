@@ -22,7 +22,7 @@ export default function Footer() {
           </div>
           <p className="text-white/70 text-sm leading-relaxed max-w-xs">
             Dörtyol ve çevresinde güvenilir öğrenci, işçi ve personel taşımacılığı.
-            15+ yıllık deneyimle hizmetinizdeyiz.
+            20+ yıllık deneyimle hizmetinizdeyiz.
           </p>
           <a
             href={COMPANY.whatsapp}
@@ -85,7 +85,7 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/10 mt-2 pt-6 pb-4 px-8">
-        <p className="text-white/50 text-center text-xs">
+        <p className="text-white/70 text-center text-xs">
           © {new Date().getFullYear()} Babacan Serviscilik Dörtyol Ltd. Şti. Tüm hakları saklıdır.
         </p>
       </div>

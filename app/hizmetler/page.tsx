@@ -6,6 +6,13 @@ import { COMPANY, SERVICES } from '@/lib/constants'
 export const metadata: Metadata = {
   title: 'Hizmetlerimiz | Babacan Serviscilik',
   description: 'Öğrenci servisi, işçi servisi ve personel taşımacılığı hizmetlerimiz hakkında detaylı bilgi.',
+  openGraph: {
+    title: 'Hizmetlerimiz | Babacan Serviscilik',
+    description: 'Öğrenci, işçi ve kurumsal personel taşımacılığı. Dörtyol ve çevresinde 20+ yıldır hizmet.',
+    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: 'Babacan Serviscilik' }],
+    locale: 'tr_TR',
+    type: 'website',
+  },
 }
 
 const ICON_MAP = { GraduationCap, HardHat, Briefcase }
@@ -52,7 +59,7 @@ export default function HizmetlerPage() {
         <h1 className="font-serif text-5xl text-white mt-3 mb-4">
           Ne Sunuyoruz?
         </h1>
-        <p className="text-white/60 text-lg max-w-xl mx-auto">
+        <p className="text-white/75 text-lg max-w-xl mx-auto">
           Dörtyol ve çevresinde güvenilir, dakik ve konforlu taşımacılık çözümleri.
         </p>
       </section>
@@ -92,7 +99,7 @@ export default function HizmetlerPage() {
       {/* CTA */}
       <section className="py-16 px-6 text-center border-t border-white/10">
         <h2 className="font-serif text-3xl text-white mb-4">Hemen Bilgi Alın</h2>
-        <p className="text-white/60 mb-8">Servis talebi veya fiyat bilgisi için bizi arayın.</p>
+        <p className="text-white/75 mb-8">Servis talebi veya fiyat bilgisi için bizi arayın.</p>
         <div className="flex flex-wrap justify-center gap-4">
           <a
             href={COMPANY.phoneHref}

@@ -2,7 +2,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { STATS } from '@/lib/constants'
-import SectionBackground from '@/components/ui/SectionBackground'
 
 function StatItem({ value, suffix, label }: { value: number; suffix: string; label: string }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -14,10 +13,7 @@ function StatItem({ value, suffix, label }: { value: number; suffix: string; lab
     const step = value / 40
     const timer = setInterval(() => {
       setCount(c => {
-        if (c + step >= value) {
-          clearInterval(timer)
-          return value
-        }
+        if (c + step >= value) { clearInterval(timer); return value }
         return c + step
       })
     }, 40)
@@ -36,22 +32,17 @@ function StatItem({ value, suffix, label }: { value: number; suffix: string; lab
       <span className="text-gold font-black text-5xl leading-none">
         {Math.floor(count)}{suffix}
       </span>
-      <span className="text-white/75 text-sm font-medium mt-2">{label}</span>
+      <p className="text-white/75 text-sm mt-2">{label}</p>
     </motion.div>
   )
 }
 
-export default function StatsBanner() {
+export default function AnimatedStats() {
   return (
-    <section className="relative overflow-hidden bg-[#0F1E35] py-16 px-6">
-
-      <SectionBackground circleSize={300} circleSize2={250} dotCount={4} />
-
-      <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10">
-        {STATS.map((s) => (
-          <StatItem key={s.label} value={s.value} suffix={s.suffix} label={s.label} />
-        ))}
-      </div>
-    </section>
+    <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      {STATS.map((s) => (
+        <StatItem key={s.label} value={s.value} suffix={s.suffix} label={s.label} />
+      ))}
+    </div>
   )
 }

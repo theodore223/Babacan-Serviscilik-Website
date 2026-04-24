@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { Phone, MessageCircle, MapPin, Clock, Send } from 'lucide-react'
+import { Phone, MessageCircle, MapPin, Clock, Send, ChevronDown, CheckCircle2 } from 'lucide-react'
 import { COMPANY, WORKING_HOURS } from '@/lib/constants'
 
 const HIZMET_TURLERI = [
@@ -12,6 +12,7 @@ const HIZMET_TURLERI = [
 
 export default function IletisimPage() {
   const [form, setForm] = useState({ ad: '', telefon: '', hizmet: '', mesaj: '' })
+  const [sent, setSent] = useState(false)
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
@@ -21,6 +22,9 @@ export default function IletisimPage() {
     e.preventDefault()
     const text = `Merhaba, servis talebim var:\n\nAd Soyad: ${form.ad}\nTelefon: ${form.telefon}\nHizmet Türü: ${form.hizmet}\nMesaj: ${form.mesaj}`
     window.open(`https://wa.me/905322562203?text=${encodeURIComponent(text)}`, '_blank')
+    setForm({ ad: '', telefon: '', hizmet: '', mesaj: '' })
+    setSent(true)
+    setTimeout(() => setSent(false), 5000)
   }
 
   return (
@@ -34,7 +38,7 @@ export default function IletisimPage() {
         <h1 className="font-serif text-5xl text-white mt-3 mb-4">
           Bize Ulaşın
         </h1>
-        <p className="text-white/60 text-lg max-w-xl mx-auto">
+        <p className="text-white/75 text-lg max-w-xl mx-auto">
           Servis talebi, fiyat bilgisi veya her türlü soru için aşağıdaki kanallardan ulaşabilirsiniz.
         </p>
       </section>
@@ -55,7 +59,7 @@ export default function IletisimPage() {
             </div>
             <h2 className="text-white font-bold text-lg mb-1">Telefon</h2>
             <p className="text-gold text-xl font-bold">{COMPANY.phone}</p>
-            <p className="text-white/50 text-sm mt-2">Hemen aramak için tıklayın</p>
+            <p className="text-white/70 text-sm mt-2">Hemen aramak için tıklayın</p>
           </a>
 
           {/* WhatsApp */}
@@ -72,7 +76,7 @@ export default function IletisimPage() {
             </div>
             <h2 className="text-white font-bold text-lg mb-1">WhatsApp</h2>
             <p className="text-green-400 text-xl font-bold">{COMPANY.phone}</p>
-            <p className="text-white/50 text-sm mt-2">Mesaj göndermek için tıklayın</p>
+            <p className="text-white/70 text-sm mt-2">Mesaj göndermek için tıklayın</p>
           </a>
 
           {/* Address */}
@@ -101,7 +105,7 @@ export default function IletisimPage() {
             <div className="space-y-2">
               {WORKING_HOURS.map(({ gun, saat }) => (
                 <div key={gun} className="flex justify-between text-sm">
-                  <span className="text-white/60">{gun}</span>
+                  <span className="text-white/75">{gun}</span>
                   <span className="text-white/90 font-medium">{saat}</span>
                 </div>
               ))}
@@ -115,7 +119,7 @@ export default function IletisimPage() {
       <section className="px-6 pb-16">
         <div className="max-w-2xl mx-auto">
           <h2 className="font-serif text-3xl text-white text-center mb-2">Servis Talebi Gönder</h2>
-          <p className="text-white/50 text-center text-sm mb-10">
+          <p className="text-white/70 text-center text-sm mb-10">
             Formu doldurun, WhatsApp üzerinden anında iletişim kuralım.
           </p>
           <form onSubmit={handleSubmit} className="space-y-5">
@@ -155,20 +159,23 @@ export default function IletisimPage() {
 
             <div>
               <label htmlFor="hizmet" className="block text-white/70 text-sm mb-1.5">Hizmet Türü</label>
-              <select
-                id="hizmet"
-                name="hizmet"
-                value={form.hizmet}
-                onChange={handleChange}
-                className="w-full bg-white/8 border border-white/15 rounded-xl px-4 py-3
-                           text-white text-sm appearance-none cursor-pointer
-                           focus:outline-none focus:border-gold/60 transition-colors duration-200"
-              >
-                <option value="" disabled className="bg-[#0D1F3C] text-white/40">Tür seçiniz</option>
-                {HIZMET_TURLERI.map(h => (
-                  <option key={h} value={h} className="bg-[#0D1F3C]">{h}</option>
-                ))}
-              </select>
+              <div className="relative">
+                <select
+                  id="hizmet"
+                  name="hizmet"
+                  value={form.hizmet}
+                  onChange={handleChange}
+                  className="w-full bg-white/8 border border-white/15 rounded-xl px-4 py-3
+                             text-white text-sm appearance-none cursor-pointer
+                             focus:outline-none focus:border-gold/60 transition-colors duration-200"
+                >
+                  <option value="" disabled className="bg-[#0D1F3C] text-white/40">Tür seçiniz</option>
+                  {HIZMET_TURLERI.map(h => (
+                    <option key={h} value={h} className="bg-[#0D1F3C]">{h}</option>
+                  ))}
+                </select>
+                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40 pointer-events-none" />
+              </div>
             </div>
 
             <div>
@@ -196,6 +203,14 @@ export default function IletisimPage() {
               <Send className="w-5 h-5" />
               WhatsApp ile Gönder
             </button>
+
+            {sent && (
+              <div className="flex items-center gap-3 bg-green-500/15 border border-green-500/30
+                              rounded-xl px-4 py-3 text-green-400 text-sm">
+                <CheckCircle2 className="w-5 h-5 shrink-0" />
+                WhatsApp açıldı! Mesajınız hazır, gönder tuşuna basmanız yeterli.
+              </div>
+            )}
           </form>
         </div>
       </section>

@@ -47,7 +47,7 @@ export const WHY_US = [
 ]
 
 export const STATS = [
-  { value: 15,  suffix: '+', label: 'Yıl Deneyim'   },
+  { value: 20,  suffix: '+', label: 'Yıl Deneyim'   },
   { value: 500, suffix: '+', label: 'Mutlu Müşteri' },
   { value: 20,  suffix: '+', label: 'Araç Filosu'   },
   { value: 5,   suffix: '.0', label: 'Google Puanı' },

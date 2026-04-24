@@ -17,7 +17,7 @@ export default function ContactCTA() {
         <div className="w-16 h-px bg-gold mx-auto mb-8" />
 
         <h2 className="font-serif text-4xl text-white mb-4">Hemen Ulaşın</h2>
-        <p className="text-white/60 text-lg mb-10">
+        <p className="text-white/75 text-lg mb-10">
           Servis talebi, bilgi veya rezervasyon için
         </p>
 
