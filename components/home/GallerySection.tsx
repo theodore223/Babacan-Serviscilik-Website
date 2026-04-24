@@ -45,7 +45,6 @@ function GalleryBlock({
   const [direction, setDirection] = useState(1)
   const [resetKey, setResetKey]   = useState(0)
   const touchStartX = useRef<number | null>(null)
-  const sliderRef   = useRef<HTMLDivElement>(null)
 
   const prev = useCallback(() => {
     setDirection(-1)
@@ -59,17 +58,6 @@ function GalleryBlock({
     if (manual) setResetKey(k => k + 1)
   }, [images.length])
 
-  /* passive:false ile yatay swipe sırasında sayfa scroll'unu engelle */
-  useEffect(() => {
-    const el = sliderRef.current
-    if (!el) return
-    const onMove = (e: TouchEvent) => {
-      if (touchStartX.current === null) return
-      if (Math.abs(touchStartX.current - e.touches[0].clientX) > 10) e.preventDefault()
-    }
-    el.addEventListener('touchmove', onMove, { passive: false })
-    return () => el.removeEventListener('touchmove', onMove)
-  }, [])
 
   function handleTouchStart(e: React.TouchEvent) {
     touchStartX.current = e.touches[0].clientX
@@ -102,11 +90,10 @@ function GalleryBlock({
   return (
     <>
       {/* Çerçeveli slider */}
-      <div ref={sliderRef}
-           className="relative rounded-2xl overflow-hidden border border-gold/20
+      <div className="relative rounded-2xl overflow-hidden border border-gold/20
                       shadow-[0_0_40px_rgba(200,155,60,0.08)] bg-[#0a1a2e]
                       mx-auto w-full max-w-lg"
-           style={{ aspectRatio: ratio }}
+           style={{ aspectRatio: ratio, touchAction: 'pan-y' }}
            onTouchStart={handleTouchStart}
            onTouchEnd={handleTouchEnd}>
 
