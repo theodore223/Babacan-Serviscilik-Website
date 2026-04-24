@@ -37,8 +37,9 @@
   --topbar-height: 40px;
 }
 
-html {
+html, body {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 /* Section heading gold underline */
