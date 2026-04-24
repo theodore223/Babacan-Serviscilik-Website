@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronLeft, ChevronRight, X, Expand } from 'lucide-react'
+import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import Image from 'next/image'
 import SectionBackground from '@/components/ui/SectionBackground'
 import TransitionBanner from '@/components/ui/TransitionBanner'
@@ -45,6 +45,7 @@ function GalleryBlock({
   const [direction, setDirection] = useState(1)
   const [resetKey, setResetKey]   = useState(0)
   const touchStartX = useRef<number | null>(null)
+  const sliderRef   = useRef<HTMLDivElement>(null)
 
   const prev = useCallback(() => {
     setDirection(-1)
@@ -57,6 +58,18 @@ function GalleryBlock({
     setCurrent(c => (c + 1) % images.length)
     if (manual) setResetKey(k => k + 1)
   }, [images.length])
+
+  /* passive:false ile yatay swipe sırasında sayfa scroll'unu engelle */
+  useEffect(() => {
+    const el = sliderRef.current
+    if (!el) return
+    const onMove = (e: TouchEvent) => {
+      if (touchStartX.current === null) return
+      if (Math.abs(touchStartX.current - e.touches[0].clientX) > 10) e.preventDefault()
+    }
+    el.addEventListener('touchmove', onMove, { passive: false })
+    return () => el.removeEventListener('touchmove', onMove)
+  }, [])
 
   function handleTouchStart(e: React.TouchEvent) {
     touchStartX.current = e.touches[0].clientX
@@ -89,7 +102,8 @@ function GalleryBlock({
   return (
     <>
       {/* Çerçeveli slider */}
-      <div className="relative rounded-2xl overflow-hidden border border-gold/20
+      <div ref={sliderRef}
+           className="relative rounded-2xl overflow-hidden border border-gold/20
                       shadow-[0_0_40px_rgba(200,155,60,0.08)] bg-[#0a1a2e]
                       mx-auto w-full max-w-lg"
            style={{ aspectRatio: ratio }}
@@ -132,17 +146,6 @@ function GalleryBlock({
                         text-white/40 text-xs tabular-nums">
           {String(current + 1).padStart(2, '0')} / {String(images.length).padStart(2, '0')}
         </div>
-
-        {/* Büyüt */}
-        <button
-          onClick={() => setLightbox(true)}
-          className="absolute top-3 right-3 z-20
-                     w-8 h-8 rounded-full bg-black/40 border border-white/15
-                     flex items-center justify-center text-white/60
-                     hover:text-white hover:bg-black/60 transition-all"
-        >
-          <Expand className="w-4 h-4" />
-        </button>
 
         {/* Oklar */}
         <button onClick={() => prev()}
