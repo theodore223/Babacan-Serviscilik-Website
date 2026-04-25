@@ -1,6 +1,5 @@
 'use client'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import SectionBackground from '@/components/ui/SectionBackground'
 
 export default function OwnerSection() {
@@ -12,7 +11,7 @@ export default function OwnerSection() {
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
 
-          {/* SOL — Fotoğraf */}
+          {/* SOL — Fotoğraf (şimdilik boş) */}
           <motion.div
             className="flex justify-center"
             initial={{ opacity: 0, x: -60 }}
@@ -21,22 +20,10 @@ export default function OwnerSection() {
             transition={{ duration: 0.8 }}
           >
             <div className="relative w-full max-w-[420px]">
-              {/* Altın çerçeve efekti */}
               <div className="absolute -bottom-4 -right-4 w-full h-full
                               border-2 border-gold/40 rounded-2xl z-0" />
-              {/* Fotoğraf kutusu */}
               <div className="relative z-10 w-full max-w-[420px] h-[380px] md:h-[520px] rounded-2xl overflow-hidden
-                              border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.5)]">
-                <Image
-                  src="/images/owner/ahmet-isikoglu.jpg"
-                  alt="Ahmet Işıkoğlu"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 420px"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F1E35]/30 to-transparent" />
-              </div>
-              {/* Gold nokta dekoru */}
+                              border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.5)] bg-white/5" />
               <div className="absolute -top-3 -left-3 w-6 h-6 rounded-full bg-gold z-20" />
             </div>
           </motion.div>
