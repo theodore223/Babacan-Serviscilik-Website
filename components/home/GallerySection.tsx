@@ -283,7 +283,7 @@ export default function GallerySection() {
                 Galeri
               </span>
               <h2 className="font-serif text-4xl text-white mb-4 gold-line">
-                Araç Filosumuz
+                Araç Filosu
               </h2>
               <p className="text-white/60 leading-relaxed mb-10">
                 Bakımlı ve modern araçlarımızla Dörtyol ve çevresinde güvenli, konforlu
