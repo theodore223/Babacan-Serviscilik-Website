@@ -237,22 +237,72 @@ function GalleryBlock({
   )
 }
 
+const ARAC_OZELLIKLER = [
+  { label: '20+', desc: 'Modern araç' },
+  { label: '18+', desc: 'Yıllık deneyim' },
+  { label: '500+', desc: 'Mutlu yolcu' },
+  { label: '7/24', desc: 'Ulaşılabilirlik' },
+]
+
+const ILAN_BILGILER = [
+  'Öğrenci servis güzergahları',
+  'Fabrika & personel taşımacılığı',
+  'Kurumsal uzun vadeli anlaşmalar',
+  'Esnek güzergah ve saat seçeneği',
+  'Sigortalı ve ruhsatlı araçlar',
+]
+
 export default function GallerySection() {
   return (
     <>
       {/* ── Araç Filosu ── */}
       <section className="relative overflow-hidden bg-[#0F1E35] py-20 px-6">
         <SectionBackground circleSize={450} circleSize2={350} />
-        <div className="relative z-10 max-w-4xl mx-auto">
-          <div className="text-center mb-10">
-            <span className="text-gold text-xs tracking-[0.3em] uppercase font-medium">
-              Galeri
-            </span>
-            <h2 className="font-serif text-3xl text-white mt-2 gold-line">
-              Araç Filosu
-            </h2>
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-14 items-center">
+
+            {/* Sol — Slider */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <GalleryBlock images={ARACLAR} autoplay />
+            </motion.div>
+
+            {/* Sağ — Bilgiler */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="flex flex-col justify-center"
+            >
+              <span className="text-gold text-xs tracking-[0.3em] uppercase font-medium mb-3">
+                Galeri
+              </span>
+              <h2 className="font-serif text-4xl text-white mb-4 gold-line">
+                Araç Filosumuz
+              </h2>
+              <p className="text-white/60 leading-relaxed mb-10">
+                Bakımlı ve modern araçlarımızla Dörtyol ve çevresinde güvenli, konforlu
+                taşımacılık hizmeti sunuyoruz. Filomuz düzenli teknik kontrolden geçmekte
+                ve her araç tam sigortalı olarak hizmet vermektedir.
+              </p>
+
+              {/* İstatistikler */}
+              <div className="grid grid-cols-2 gap-5">
+                {ARAC_OZELLIKLER.map(({ label, desc }) => (
+                  <div key={desc} className="bg-white/5 border border-white/10 rounded-2xl px-5 py-4">
+                    <p className="text-gold font-bold text-3xl font-serif">{label}</p>
+                    <p className="text-white/60 text-sm mt-1">{desc}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
           </div>
-          <GalleryBlock images={ARACLAR} autoplay />
         </div>
       </section>
 
@@ -261,16 +311,68 @@ export default function GallerySection() {
       {/* ── Servis İlanları ── */}
       <section className="relative overflow-hidden bg-[#081529] py-20 px-6">
         <SectionBackground circleSize={400} circleSize2={300} dotCount={4} />
-        <div className="relative z-10 max-w-4xl mx-auto">
-          <div className="text-center mb-10">
-            <span className="text-gold text-xs tracking-[0.3em] uppercase font-medium">
-              Duyurular
-            </span>
-            <h2 className="font-serif text-3xl text-white mt-2 gold-line">
-              Servis İlanlarımız
-            </h2>
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-14 items-center">
+
+            {/* Sol — Bilgiler */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="flex flex-col justify-center"
+            >
+              <span className="text-gold text-xs tracking-[0.3em] uppercase font-medium mb-3">
+                Duyurular
+              </span>
+              <h2 className="font-serif text-4xl text-white mb-4 gold-line">
+                Servis İlanlarımız
+              </h2>
+              <p className="text-white/60 leading-relaxed mb-8">
+                Öğrenci ve personel taşımacılığında güvenilir çözümler sunuyoruz.
+                Güzergahlarımız ve ilan detaylarımız için aşağıdaki hizmet
+                başlıklarına göz atın.
+              </p>
+
+              {/* Özellik listesi */}
+              <div className="space-y-3 mb-10">
+                {ILAN_BILGILER.map((item, i) => (
+                  <motion.div
+                    key={i}
+                    className="flex items-center gap-3"
+                    initial={{ opacity: 0, x: -15 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 + i * 0.08, duration: 0.4 }}
+                  >
+                    <div className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
+                    <span className="text-white/70 text-sm">{item}</span>
+                  </motion.div>
+                ))}
+              </div>
+
+              <a
+                href="/iletisim"
+                className="inline-flex items-center gap-2 bg-gold text-navy font-bold
+                           text-sm px-6 py-3 rounded-xl hover:bg-gold/90 transition-all
+                           duration-200 w-fit"
+              >
+                Bilgi Al
+                <ChevronRight className="w-4 h-4" />
+              </a>
+            </motion.div>
+
+            {/* Sağ — Slider */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <GalleryBlock images={ILANLAR} autoplay ratio="2/3" />
+            </motion.div>
+
           </div>
-          <GalleryBlock images={ILANLAR} autoplay ratio="2/3" />
         </div>
       </section>
     </>
