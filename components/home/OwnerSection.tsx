@@ -1,5 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import SectionBackground from '@/components/ui/SectionBackground'
 
 export default function OwnerSection() {
@@ -23,7 +24,15 @@ export default function OwnerSection() {
               <div className="absolute -bottom-4 -right-4 w-full h-full
                               border-2 border-gold/40 rounded-2xl z-0" />
               <div className="relative z-10 w-full max-w-[420px] h-[380px] md:h-[520px] rounded-2xl overflow-hidden
-                              border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.5)] bg-white/5" />
+                              border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.5)]">
+                <Image
+                  src="/images/owner/ahmet-isikoglu.jpeg"
+                  alt="Ahmet Işıkoğlu"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 768px) 100vw, 420px"
+                />
+              </div>
               <div className="absolute -top-3 -left-3 w-6 h-6 rounded-full bg-gold z-20" />
             </div>
           </motion.div>
